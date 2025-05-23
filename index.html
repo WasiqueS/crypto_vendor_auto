@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Exchange UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Coin Balances</h1>
+        <div class="coin-balances">
+            <div class="coin-card">
+                <div class="coin-header">
+                    <span class="coin-icon">₿</span>
+                    <h2 class="coin-name">BTC</h2>
+                    <span class="change positive">↑ 2.3%</span>
+                </div>
+                <p class="balance-label">Balance</p>
+                <p class="balance-value">0.45 BTC</p>
+                <p class="rate-label">Current Rate</p>
+                <p class="rate-value">US $62,500.00</p>
+                <p class="excess-label">Excess Coin: 0.20 BTC</p>
+                <button class="exchange-button">Exchange Coin</button>
+            </div>
+
+            <div class="coin-card">
+                <div class="coin-header">
+                    <span class="coin-icon">₮</span>
+                    <h2 class="coin-name">USDT</h2>
+                    <span class="change positive">↑ 0.01%</span>
+                </div>
+                <p class="balance-label">Balance</p>
+                <p class="balance-value">1,250.75 USDT</p>
+                <p class="rate-label">Current Rate</p>
+                <p class="rate-value">US $1.00</p>
+                <p class="excess-label">Excess Coin: 500.00 USDT</p>
+                <button class="exchange-button">Exchange Coin</button>
+            </div>
+
+            <div class="coin-card">
+                <div class="coin-header">
+                    <span class="coin-icon">◆</span>
+                    <h2 class="coin-name">ETH</h2>
+                    <span class="change negative">↓ 1.2%</span>
+                </div>
+                <p class="balance-label">Balance</p>
+                <p class="balance-value">3.20 ETH</p>
+                <p class="rate-label">Current Rate</p>
+                <p class="rate-value">US $3,450.00</p>
+                <p class="excess-label">Excess Coin: 1.50 ETH</p>
+                <button class="exchange-button">Exchange Coin</button>
+            </div>
+        </div>
+         <div class="refresh-section">
+            <button class="refresh-button">
+                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16px" height="16px">
+                    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+                 </svg>
+                Refresh <span class="dropdown-arrow">▼</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Excess Coin Modal -->
+    <div class="modal-overlay" id="excessCoinModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Excess Coin Details - BTC</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="totalCoin">Total Coin (Wallet + Vendor)</label>
+                    <input type="text" id="totalCoin" value="0.5" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="currentRate">Current Rate</label>
+                    <input type="text" id="currentRate" value="US $62,500.00" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="capitalCoin">Capital Coin</label>
+                    <input type="text" id="capitalCoin" value="0.3" readonly>
+                </div>
+                 <div class="form-group">
+                    <label for="excessCoin">Excess Coin</label>
+                    <input type="text" id="excessCoin" value="0.20000000" readonly>
+                </div>
+
+                <div class="rate-option">
+                    <span>Rate Option</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="rateToggle" checked>
+                        <label for="rateToggle" class="slider"></label>
+                    </div>
+                    <span class="toggle-label-left">Market Rate</span>
+                     <span class="toggle-label-right">Limit</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-button">Cancel</button>
+                <button class="execute-button">Execute Sell trade</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Basic JavaScript to show/hide modal (optional for plain CSS)
+        const modal = document.getElementById('excessCoinModal');
+        const exchangeButtons = document.querySelectorAll('.exchange-button');
+        const closeButton = document.querySelector('.close-button');
+        const cancelButton = document.querySelector('.cancel-button');
+        const modalOverlay = document.querySelector('.modal-overlay');
+
+        exchangeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                modal.style.display = 'flex'; // Use flex to center
+            });
+        });
+
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        cancelButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Close modal if clicking outside the content
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
