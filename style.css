@@ -325,7 +325,7 @@ input:checked + .slider:before {
 
 
 /* Responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     .coin-balances {
         flex-direction: column; 
         gap: 15px;
@@ -352,46 +352,5 @@ input:checked + .slider:before {
     .execute-button {
         padding: 8px 15px;
         font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 5px;
-    }
-    .coin-card {
-        padding: 10px;
-        border-radius: 6px;
-        min-width: 98vw;
-        max-width: 99vw;
-        margin: 0 auto;
-    }
-    .coin-header {
-        margin-bottom: 10px;
-    }
-    .coin-name {
-        font-size: 16px;
-    }
-    .change {
-        font-size: 12px;
-    }
-    .balance-label,
-    .rate-label,
-    .excess-label {
-        font-size: 12px;
-    }
-    .balance-value,
-    .rate-value {
-        font-size: 14px;
-    }
-    .exchange-button {
-        padding: 8px 0;
-        font-size: 13px;
-        border-radius: 4px;
-        width: 100%;
-        margin-top: 10px;
-    }
-    h1 {
-        font-size: 20px;
     }
 }
